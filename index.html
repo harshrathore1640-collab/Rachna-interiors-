@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Rachna Interiors — turnkey interior design and execution for refined residential and commercial spaces.">
+<title>Rachna Interiors | Turnkey Interior Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+ --bg:#11100f;--bg2:#191715;--cream:#f3eee6;--warm:#d8c9b5;--taupe:#a99883;
+ --accent:#b89267;--accent2:#e1c9a8;--white:#faf8f3;--line:rgba(255,255,255,.12);
+ --max:1240px;--radius:24px
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"DM Sans",sans-serif;background:var(--bg);color:var(--white);overflow-x:hidden}
+a{color:inherit;text-decoration:none}img{display:block;width:100%;height:100%;object-fit:cover}
+.container{width:min(var(--max),92%);margin:auto}
+h1,h2,h3,.serif{font-family:"Playfair Display",serif}
+h2{font-size:clamp(42px,5.4vw,74px);line-height:.96;font-weight:600;letter-spacing:-.035em}
+p{color:#bdb7ae;line-height:1.75}
+.kicker{font-size:10px;text-transform:uppercase;letter-spacing:.25em;color:var(--accent2);font-weight:700}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .8s ease,transform .8s ease}
+.reveal.show{opacity:1;transform:none}
+
+/* NAV */
+.nav{position:absolute;top:0;left:0;width:100%;z-index:50;padding:23px 0}
+.nav-in{display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:"Manrope";font-size:16px;font-weight:800;letter-spacing:.12em}
+.logo small{display:block;font-size:8px;letter-spacing:.3em;color:var(--accent2);margin-top:4px}
+.links{display:flex;gap:28px;font-size:11px;color:#ddd7ce}
+.links a{transition:.25s}.links a:hover{color:var(--accent2)}
+.nav-btn{border:1px solid rgba(225,201,168,.45);border-radius:999px;padding:11px 17px;font-size:11px;color:var(--accent2)}
+.menu{display:none;background:none;border:0;color:#fff;font-size:25px}
+
+/* HERO */
+.hero{min-height:100vh;position:relative;display:flex;align-items:end;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:
+linear-gradient(90deg,rgba(13,12,11,.9),rgba(13,12,11,.5) 48%,rgba(13,12,11,.25)),
+linear-gradient(0deg,rgba(13,12,11,.78),transparent 55%),
+url("https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2400&q=90") center/cover}
+.hero-content{position:relative;z-index:2;padding:165px 0 95px;max-width:880px}
+.hero h1{font-size:clamp(64px,9.5vw,132px);line-height:.82;margin:18px 0 28px;letter-spacing:-.055em}
+.hero h1 span{color:var(--accent2)}
+.hero-copy{max-width:650px;font-size:16px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:15px 23px;font-size:11px;font-weight:700;letter-spacing:.06em;transition:transform .25s,background .25s,border .25s}
+.primary{background:var(--accent2);color:#171411}.secondary{border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);backdrop-filter:blur(12px)}
+.hero-side{position:absolute;right:4%;bottom:36px;writing-mode:vertical-rl;font-size:9px;letter-spacing:.2em;color:#b8b1a6}
+.scroll{position:absolute;left:4%;bottom:37px;display:flex;gap:12px;align-items:center;font-size:9px;letter-spacing:.18em;color:#a7a198}.scroll i{width:55px;height:1px;background:var(--accent)}
+
+/* GENERIC */
+.section{padding:120px 0}.cream{background:var(--cream);color:#171513}.cream p{color:#69645c}.dark2{background:var(--bg2)}
+.head{display:flex;justify-content:space-between;align-items:end;gap:50px;margin-bottom:55px}.head .intro{max-width:500px}.head .intro p{margin-top:16px}
+
+/* ABOUT */
+.about{display:grid;grid-template-columns:1.05fr .95fr;gap:75px;align-items:center}
+.about-img{height:620px;border-radius:var(--radius);overflow:hidden;position:relative}
+.about-img img{transition:transform 1s}.about-img:hover img{transform:scale(1.04)}
+.about-badge{position:absolute;bottom:24px;left:24px;padding:18px 20px;background:rgba(18,16,14,.8);backdrop-filter:blur(14px);border-left:2px solid var(--accent2);max-width:280px}
+.about-badge strong{font-family:"Playfair Display";font-size:24px}
+.about-copy h2{margin:15px 0 24px}.about-copy p+p{margin-top:14px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);margin-top:40px;background:rgba(0,0,0,.12);gap:1px}
+.stat{padding:20px;background:var(--cream)}.stat b{display:block;font:600 32px "Playfair Display"}.stat span{font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:#777067}
+
+/* SERVICES */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{height:430px;border-radius:19px;overflow:hidden;position:relative;background:#24211e}
+.card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 32%,rgba(0,0,0,.9))}
+.card img{transition:transform .8s}.card:hover img{transform:scale(1.07)}
+.card-info{position:absolute;z-index:2;left:24px;right:24px;bottom:24px}.card-no{color:var(--accent2);font-size:9px;letter-spacing:.18em}.card h3{font-size:30px;margin:6px 0}.card p{font-size:12px;color:#d0cbc3}
+.card:first-child{grid-row:span 2;height:876px}.card:first-child h3{font-size:42px}
+
+/* PROJECTS */
+.projects{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}
+.project{border-radius:20px;overflow:hidden;position:relative;height:340px}.project.large{height:696px}.project img{transition:transform .8s}.project:hover img{transform:scale(1.05)}
+.project:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.72),transparent 55%)}
+.project-label{position:absolute;z-index:2;bottom:22px;left:22px}.project-label h3{font-size:27px}.project-label span{font-size:9px;letter-spacing:.15em;color:var(--accent2);text-transform:uppercase}
+
+/* WHY */
+.why{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
+.why-img{height:610px;border-radius:24px;overflow:hidden}.why-img img{transition:transform .9s}.why-img:hover img{transform:scale(1.04)}
+.reasons{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:32px}
+.reason{padding:27px;border:1px solid var(--line);border-radius:17px;background:#1d1a18}.reason b{color:var(--accent2);font-size:20px}.reason h3{font-family:"Manrope";font-size:15px;margin:13px 0 8px}.reason p{font-size:12px;line-height:1.65}
+
+/* PROCESS */
+.process{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.step{min-height:245px;padding:30px 24px;border-right:1px solid var(--line)}.step:last-child{border-right:0}.step-num{font:600 45px "Playfair Display";color:var(--accent)}.step h3{font-size:24px;margin:18px 0 10px}.step p{font-size:12px}
+
+/* REVIEWS */
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.review{background:#ebe3d7;border-radius:18px;padding:30px}.stars{color:#a77b45;letter-spacing:4px}.review blockquote{font:500 21px/1.4 "Playfair Display";color:#29251f;margin:20px 0}.review small{color:#70695f;font-size:11px}
+
+/* FAQ */
+.faq-wrap{max-width:900px;margin:auto}.faq{border-top:1px solid var(--line)}.faq button{width:100%;padding:23px 0;background:none;border:0;color:#fff;display:flex;justify-content:space-between;text-align:left;cursor:pointer;font-size:15px}.faq button span:last-child{color:var(--accent2);font-size:20px}.answer{max-height:0;overflow:hidden;transition:max-height .4s}.answer p{padding:0 35px 22px 0;font-size:13px}
+
+/* CONTACT */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:18px}.contact-card{border-radius:24px;background:#1c1917;border:1px solid #2c2824;padding:42px}.contact-card h3{font-size:42px;margin:13px 0}.contact-list{display:grid;gap:17px;margin-top:30px}.contact-item{display:flex;gap:14px}.contact-item b{min-width:85px;color:var(--accent2);font-size:10px;text-transform:uppercase;letter-spacing:.13em}.contact-item div{font-size:13px;color:#ddd5ca}.map{min-height:430px;border-radius:24px;overflow:hidden;position:relative}.map iframe{width:100%;height:100%;border:0;filter:grayscale(1) contrast(.95) brightness(.72)}.map-tag{position:absolute;left:20px;bottom:20px;padding:14px 17px;background:rgba(15,13,12,.84);backdrop-filter:blur(10px);border-left:2px solid var(--accent2);font-size:11px}
+
+/* FOOTER */
+footer{padding:60px 0 25px;background:#0b0a09;border-top:1px solid #27231f}.footer-grid{display:grid;grid-template-columns:1.5fr .7fr .8fr;gap:50px}.footer-brand h3{font-size:38px;margin-top:8px}.footer-brand p{max-width:450px;margin-top:15px}.footer-title{font-size:10px;color:var(--accent2);letter-spacing:.18em;text-transform:uppercase;margin-bottom:18px}.footer-links{list-style:none;display:grid;gap:10px;font-size:12px;color:#aaa29a}.copyright{border-top:1px solid #24211e;margin-top:50px;padding-top:20px;display:flex;justify-content:space-between;color:#6f6a63;font-size:10px}
+
+/* FLOATING */
+.float{position:fixed;right:20px;bottom:20px;z-index:100;display:grid;gap:10px}.float a{width:53px;height:53px;border-radius:50%;display:grid;place-items:center;color:white;font-size:20px;border:1px solid rgba(255,255,255,.15);box-shadow:0 14px 35px rgba(0,0,0,.35);transition:.25s}.float a:hover{transform:scale(1.1) translateY(-3px)}.call{background:#292521}.wa{background:#176b4b}
+
+/* MOBILE */
+@media(max-width:900px){
+ .links,.nav-btn{display:none}.menu{display:block}
+ .hero-content{padding-top:150px}.hero h1{font-size:clamp(58px,14vw,95px)}
+ .about,.why,.contact,.projects{grid-template-columns:1fr}
+ .about-img,.why-img{height:470px}
+ .cards{grid-template-columns:1fr 1fr}.card:first-child{grid-row:auto;height:430px}.card:first-child h3{font-size:30px}
+ .projects .large{height:520px}.project{height:300px}
+ .process{grid-template-columns:1fr 1fr}.step:nth-child(2){border-right:0}.step{border-bottom:1px solid var(--line)}
+ .reviews{grid-template-columns:1fr}
+ .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+ .section{padding:82px 0}.head{display:block;margin-bottom:35px}.head h2{margin-top:12px}
+ .cards{grid-template-columns:1fr}.card,.card:first-child{height:390px}
+ .projects{gap:12px}.projects .large{height:400px}.project{height:250px}
+ .reasons{grid-template-columns:1fr}.process{grid-template-columns:1fr}.step{border-right:0!important}
+ .footer-grid{grid-template-columns:1fr}.copyright{display:block}.copyright span{display:block;margin-top:8px}
+ .hero-side,.scroll{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+ <div class="container nav-in">
+  <a class="logo" href="#home">RACHNA INTERIORS<small>TURNKEY INTERIOR DESIGN</small></a>
+  <nav class="links">
+   <a href="#about">About</a><a href="#services">Services</a><a href="#projects">Projects</a><a href="#process">Process</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
+  </nav>
+  <a class="nav-btn magnetic" href="tel:9209010926">Call 9209010926</a>
+  <button class="menu" aria-label="Open menu">☰</button>
+ </div>
+</header>
+
+<main id="home">
+<section class="hero">
+ <div class="hero-bg"></div>
+ <div class="container hero-content reveal">
+  <div class="kicker">Turnkey Interior Design & Execution</div>
+  <h1>Spaces with<br><span>purpose.</span></h1>
+  <p class="hero-copy">Rachna Interiors creates sophisticated, functional interiors — from concept and material selection to execution and final handover.</p>
+  <div class="actions">
+   <a class="btn primary magnetic" href="#projects">Explore Projects ↗</a>
+   <a class="btn secondary magnetic" href="https://wa.me/919209010926?text=Hello%20Rachna%20Interiors%2C%20I%20would%20like%20to%20discuss%20a%20turnkey%20interior%20project." target="_blank">WhatsApp Enquiry</a>
+  </div>
+ </div>
+ <div class="scroll"><i></i> SCROLL TO DISCOVER</div>
+ <div class="hero-side">RESIDENTIAL · COMMERCIAL · TURNKEY</div>
+</section>
+
+<section class="section cream" id="about">
+ <div class="container about">
+  <div class="about-img reveal">
+   <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1600&q=90" alt="Premium interior by Rachna Interiors">
+   <div class="about-badge"><strong>Designed around you.</strong><br><small>Thoughtful planning. Refined detailing. Complete execution.</small></div>
+  </div>
+  <div class="about-copy reveal">
+   <div class="kicker">About Rachna Interiors</div>
+   <h2>Interiors that feel considered, not copied.</h2>
+   <p>We design and execute interiors around the way people actually live and work. Our approach combines spatial planning, material language, lighting, furniture and detailing into one cohesive experience.</p>
+   <p>With turnkey execution, one team can take the project from initial brief through design development, coordination and finishing.</p>
+   <div class="stats">
+    <div class="stat"><b>360°</b><span>Design approach</span></div>
+    <div class="stat"><b>1</b><span>Turnkey partner</span></div>
+    <div class="stat"><b>100%</b><span>Project focused</span></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="section dark2" id="services">
+ <div class="container">
+  <div class="head reveal">
+   <div><div class="kicker">What We Do</div><h2>From first sketch<br>to final <span style="color:var(--accent2)">finish.</span></h2></div>
+   <div class="intro"><p>A complete interior service designed to reduce coordination and create a consistent design language across your space.</p></div>
+  </div>
+  <div class="cards">
+   <article class="card reveal"><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1600&q=90" alt="Turnkey interior"><div class="card-info"><div class="card-no">01 / TURNKEY</div><h3>Turnkey Interiors</h3><p>End-to-end design, coordination, execution and handover.</p></div></article>
+   <article class="card reveal"><img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=88" alt="Residential interiors"><div class="card-info"><div class="card-no">02 / RESIDENTIAL</div><h3>Homes</h3><p>Warm, functional spaces tailored to everyday living.</p></div></article>
+   <article class="card reveal"><img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=88" alt="Office interiors"><div class="card-info"><div class="card-no">03 / COMMERCIAL</div><h3>Workspaces</h3><p>Professional environments that balance identity and usability.</p></div></article>
+   <article class="card reveal"><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=88" alt="Luxury bedroom interior"><div class="card-info"><div class="card-no">04 / STYLING</div><h3>Furniture & Styling</h3><p>Furniture, lighting, colours and finishing details that complete the space.</p></div></article>
+   <article class="card reveal"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=88" alt="Kitchen interior"><div class="card-info"><div class="card-no">05 / DESIGN</div><h3>Space Planning</h3><p>Layouts and circulation planned around function, comfort and proportion.</p></div></article>
+  </div>
+ </div>
+</section>
+
+<section class="section cream" id="projects">
+ <div class="container">
+  <div class="head reveal">
+   <div><div class="kicker">Selected Visuals</div><h2>Rooms with a<br><span style="color:#96704a">point of view.</span></h2></div>
+   <div class="intro"><p>Reference projects and visual directions across living spaces, kitchens, bedrooms, offices and hospitality-inspired interiors.</p></div>
+  </div>
+  <div class="projects">
+   <article class="project large reveal"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=90" alt="Luxury living room"><div class="project-label"><span>Residential / Living</span><h3>Quiet luxury</h3></div></article>
+   <div style="display:grid;gap:16px">
+    <article class="project reveal"><img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1200&q=90" alt="Modern kitchen"><div class="project-label"><span>Residential / Kitchen</span><h3>Material harmony</h3></div></article>
+    <article class="project reveal"><img src="https://images.unsplash.com/photo-1600566753051-6c7c9c2f9b4e?auto=format&fit=crop&w=1200&q=90" alt="Bedroom interior"><div class="project-label"><span>Residential / Bedroom</span><h3>Soft geometry</h3></div></article>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="why">
+ <div class="container why">
+  <div class="why-img reveal"><img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1500&q=90" alt="Premium interior space"></div>
+  <div class="reveal">
+   <div class="kicker">Why Rachna Interiors</div>
+   <h2 style="margin:14px 0 0">Design clarity.<br><span style="color:var(--accent2)">Execution discipline.</span></h2>
+   <div class="reasons">
+    <div class="reason"><b>01</b><h3>One connected process</h3><p>Design, selections, coordination and execution stay aligned throughout the project.</p></div>
+    <div class="reason"><b>02</b><h3>Personalised design</h3><p>Your lifestyle, brand or operational needs shape the design direction.</p></div>
+    <div class="reason"><b>03</b><h3>Material attention</h3><p>Finishes, textures, hardware and lighting are considered as one visual system.</p></div>
+    <div class="reason"><b>04</b><h3>Turnkey convenience</h3><p>A structured approach helps reduce the number of vendors and coordination points.</p></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="section dark2" id="process">
+ <div class="container">
+  <div class="head reveal">
+   <div><div class="kicker">Our Process</div><h2>A smoother journey<br>to your <span style="color:var(--accent2)">finished space.</span></h2></div>
+   <div class="intro"><p>Every project starts with understanding the brief and ends with a space ready to use.</p></div>
+  </div>
+  <div class="process reveal">
+   <div class="step"><div class="step-num">01</div><h3>Discover</h3><p>We understand your requirements, taste, lifestyle, timeline and budget direction.</p></div>
+   <div class="step"><div class="step-num">02</div><h3>Design</h3><p>Concepts, layouts, finishes, furniture and visual direction are developed.</p></div>
+   <div class="step"><div class="step-num">03</div><h3>Execute</h3><p>Site coordination and execution turn the approved design into the physical space.</p></div>
+   <div class="step"><div class="step-num">04</div><h3>Handover</h3><p>Final detailing, finishing checks and project handover complete the journey.</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="section cream">
+ <div class="container">
+  <div class="head reveal"><div><div class="kicker">Client Experience</div><h2>Designed to be<br><span style="color:#96704a">remembered.</span></h2></div><div class="intro"><p>Use this section for verified Google or client testimonials once your review content is ready.</p></div></div>
+  <div class="reviews">
+   <article class="review reveal"><div class="stars">★★★★★</div><blockquote>“The team understood the brief and brought the entire look together beautifully.”</blockquote><small>— Client review placeholder</small></article>
+   <article class="review reveal"><div class="stars">★★★★★</div><blockquote>“The turnkey approach made the process much easier from design to execution.”</blockquote><small>— Client review placeholder</small></article>
+   <article class="review reveal"><div class="stars">★★★★★</div><blockquote>“Thoughtful details, elegant finishes and a very cohesive final space.”</blockquote><small>— Client review placeholder</small></article>
+  </div>
+ </div>
+</section>
+
+<section class="section dark2" id="faq">
+ <div class="container">
+  <div class="head reveal"><div><div class="kicker">FAQ</div><h2>Good design<br>starts with <span style="color:var(--accent2)">clarity.</span></h2></div><div class="intro"><p>Questions about turnkey interiors, timelines or your next project? Start with the answers below.</p></div></div>
+  <div class="faq-wrap">
+   <div class="faq reveal"><button><span>What does turnkey interior design include?</span><span>+</span></button><div class="answer"><p>It can cover the design concept, space planning, material and finish selection, furniture and styling coordination, execution and final handover. The exact scope is defined for each project.</p></div></div>
+   <div class="faq reveal"><button><span>Do you work on complete homes?</span><span>+</span></button><div class="answer"><p>Yes. Rachna Interiors can structure a complete-home interior project across living areas, bedrooms, kitchens, dining spaces and other required zones.</p></div></div>
+   <div class="faq reveal"><button><span>Can you work with an existing space?</span><span>+</span></button><div class="answer"><p>Yes. Existing interiors can be assessed and redesigned around the desired functionality, style and level of renovation.</p></div></div>
+   <div class="faq reveal"><button><span>How do I start a project discussion?</span><span>+</span></button><div class="answer"><p>Call or WhatsApp +91 92090 10926 with your project type, approximate location, requirements and any reference images you already have.</p></div></div>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="contact">
+ <div class="container contact">
+  <div class="contact-card reveal">
+   <div class="kicker">Let's Talk</div>
+   <h3>Have a space in mind?</h3>
+   <p>Share your requirement and let’s discuss the right design and execution approach for your project.</p>
+   <div class="contact-list">
+    <div class="contact-item"><b>Call</b><div><a href="tel:9209010926">+91 92090 10926</a></div></div>
+    <div class="contact-item"><b>WhatsApp</b><div><a href="https://wa.me/919209010926" target="_blank">Start a conversation ↗</a></div></div>
+    <div class="contact-item"><b>Instagram</b><div><a href="https://www.instagram.com/" target="_blank">Follow our design journey ↗</a></div></div>
+   </div>
+  </div>
+  <div class="map reveal">
+   <iframe src="https://www.google.com/maps?q=Jaipur%2C%20Rajasthan&output=embed" loading="lazy" title="Rachna Interiors location map"></iframe>
+   <div class="map-tag"><strong>RACHNA INTERIORS</strong><br>Replace this map with the exact studio/project location.</div>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="container">
+  <div class="footer-grid">
+   <div class="footer-brand"><div class="kicker">Rachna Interiors</div><h3>Spaces made<br>for living.</h3><p>Turnkey interior design and execution for refined residential and commercial spaces.</p></div>
+   <div><div class="footer-title">Explore</div><ul class="footer-links"><li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#projects">Projects</a></li><li><a href="#process">Process</a></li></ul></div>
+   <div><div class="footer-title">Connect</div><ul class="footer-links"><li><a href="tel:9209010926">+91 92090 10926</a></li><li><a href="https://wa.me/919209010926" target="_blank">WhatsApp</a></li><li><a href="https://www.instagram.com/" target="_blank">Instagram</a></li></ul></div>
+  </div>
+  <div class="copyright"><span>© <span id="year"></span> Rachna Interiors. All rights reserved.</span><span>Turnkey Interior Design & Execution</span></div>
+ </div>
+</footer>
+
+<div class="float">
+ <a class="call magnetic" href="tel:9209010926" aria-label="Call Rachna Interiors">☎</a>
+ <a class="wa magnetic" href="https://wa.me/919209010926?text=Hello%20Rachna%20Interiors%2C%20I%20would%20like%20to%20discuss%20an%20interior%20project." target="_blank" aria-label="WhatsApp Rachna Interiors">◉</a>
+</div>
+
+<script>
+document.getElementById("year").textContent=new Date().getFullYear();
+
+const io=new IntersectionObserver(entries=>{
+ entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("show")});
+},{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+
+document.querySelectorAll(".faq button").forEach(btn=>{
+ btn.addEventListener("click",()=>{
+  const item=btn.parentElement, ans=item.querySelector(".answer"), icon=btn.querySelector("span:last-child");
+  document.querySelectorAll(".faq").forEach(f=>{
+   if(f!==item){f.querySelector(".answer").style.maxHeight=null;f.querySelector("button span:last-child").textContent="+"}
+  });
+  if(ans.style.maxHeight){ans.style.maxHeight=null;icon.textContent="+"}
+  else{ans.style.maxHeight=ans.scrollHeight+"px";icon.textContent="−"}
+ });
+});
+
+document.querySelectorAll(".magnetic").forEach(el=>{
+ el.addEventListener("mousemove",e=>{
+  const r=el.getBoundingClientRect();
+  const x=e.clientX-r.left-r.width/2,y=e.clientY-r.top-r.height/2;
+  el.style.transform=`translate(${x*.13}px,${y*.13}px)`;
+ });
+ el.addEventListener("mouseleave",()=>el.style.transform="");
+});
+
+const menu=document.querySelector(".menu"),links=document.querySelector(".links");
+menu.addEventListener("click",()=>{
+ const open=links.dataset.open==="1";
+ if(open){links.style.display="";links.dataset.open="0";return}
+ links.dataset.open="1";
+ links.style.display="flex";links.style.position="absolute";links.style.top="72px";links.style.left="4%";links.style.right="4%";
+ links.style.padding="22px";links.style.flexDirection="column";links.style.background="rgba(15,14,13,.97)";
+ links.style.border="1px solid #312d28";links.style.borderRadius="18px";
+});
+document.querySelectorAll(".links a").forEach(a=>a.addEventListener("click",()=>{
+ if(innerWidth<=900){links.style.display="";links.dataset.open="0"}
+}));
+</script>
+</body>
+</html>
